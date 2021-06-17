@@ -1,0 +1,10 @@
+<div class="mt-4 row">
+  <div class="col-3"></div>
+  <div class="col-6 pt-3 border" >
+    <h5 class="">This time you answered <%= @score.correct_answers %> out of <%= @data.length %> correctly</h5>
+    <% @user.submitted_scores.each do |score| %>
+      <p class="mt-4"><%= score.submitted_at.strftime("At %I:%M%p , %m-%d-%y")%>, you answered <%= score.correct_answers %> out of <%= @data.length %> correctly </p>
+    <% end %>
+    <%= link_to "Reload", root_path, class:"btn btn-purple mb-4" %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="position-absolute bottom-0 footer">
+   <div class="ft-container px-3"
+    <% if @user && @user.submitted_scores.present? %>
+    <p class="">Your Heighest Level Achieved is <%= @user.submitted_scores.order("correct_answers DESC").first.correct_answers || 0 %>
+    </p>
+    <% else %>
+    <p> You don't have any scores yet. Take the test to see your high score </p>
+    <% end %>
+    
+    </p>
+    <div class="d-flex">
+        <span class=""><a href="https://www.facebook.com/">Facebook</a></span>
+        <span class="px-2"><a href="https://twitter.com/">Twitter</a></span>
+        <span class=""><a href="https://www.instagram.com/">Instagram</a></span>
+    </div>
+   </div>
+</div>
