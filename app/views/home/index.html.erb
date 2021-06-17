@@ -1,0 +1,20 @@
+<div class="container m-4">
+  <div class="list-group">
+    <% @data_hash.each do |data| %>
+      <%= form_with url: "/submit_answer", method: :post do |form| %>
+        <%= form.hidden_field :page, value: @page+1 %>
+        <%= form.hidden_field :correct_answers, value: correct_answers(data["correct_answers"]) %>
+      <p class=""><%= data["question"]%></p>
+      <% selectable_answers(data["answers"]).each_with_index do |answer, i| %>
+        <div class="form-check">
+          <%= form.radio_button "answer", i, class:"form-check-input", required:true%>
+          <%= form.label :anwer, answer, class:"form-check-label"%>
+        </div>
+      <% end %>
+      <div class="col-4 mt-4">
+        <%= form.submit "Submit", class: "btn btn-purple", id: "btnSubmit"  %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
